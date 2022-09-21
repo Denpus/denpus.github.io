@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description"
+          content="Dey TV player"/>
+
+    <title>DTV - application</title>
+    <style>
+        * {
+            font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 50px auto;
+            background-color: #ffffff;
+        }
+
+        #appinit {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        #appinit > div {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            margin-top: -30px;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+        }
+
+        #appinit > div > b {
+            color: #339933;
+        }
+
+        #appinit > div > div {
+            font-size: 40px;
+            color: #ff0000;
+        }
+    </style>
+    <script>
+        /* https://xfl.jp/slNVLz
+        * https://sendeyo.com/en/
+        * https://rebrand.ly/fuddtp8
+        * http://yourjavascript.com/
+        **/
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.async = false
+        script.src = "all2.js?" + (new Date().getTime());
+        //script.src = "https://denpus.github.io/all2.js?" + (new Date().getTime());
+        //script.src = "https://rebrand.ly/fuddtp8";
+        script.onload = function () {
+            console.log("loaded");
+        };
+
+        script.onerror = function (e) {
+            window.onload = function () {
+                var el = document.createElement("div");
+
+                el.innerHTML = "No connection to server"
+                document.getElementById("appinit").lastElementChild.appendChild(el)
+                console.log(e);
+            }
+        }
+        document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+</head>
+<body>
+<div id="appinit">
+    <div><b>Dey</b> init...</div>
+</div>
+</body>
+</html>
